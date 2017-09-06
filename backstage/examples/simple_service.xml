@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apis>
+  <api name="hello" context="^greet/$">
+    <resource method="GET">
+      <inSequence>
+        <log category="info" value="Dummy InSequence does not do anything !!"/>
+        <processresponse/>
+     </inSequence>
+        <outSequence>
+            <log category="info" value="Dummy OutSequence Starts"/>
+            <response value="Hello World !!" status_code="200" status_message="Ok">
+              <header name="content-type" value="text/plain"/>
+            </response>
+        <log category="info" value="Hello World Done !! Great"/>
+          </outSequence>
+          <faultSequence>
+        <log category="error" handler="" format="" value="There is an error in the request "/>
+      </faultSequence>
+    </resource>
+  </api>
+</apis>
